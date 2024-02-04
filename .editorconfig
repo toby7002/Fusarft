@@ -1,0 +1,14 @@
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+[*.kt]
+ktlint_code_style = ktlint_official
+indent_style = tab
+indent_size = 4
+
+[*.md]
+indent_style = tab
+indent_size = 4
