@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "": {
+      "model": "minecraft:block/air"
+    }
+  },
+
+  "athena:loader": "athena:ctm",
+  "ctm_textures": {
+    "center": "fusarft:block/ctm/laser_port/0",
+    "empty": "fusarft:block/ctm/laser_port/2",
+    "horizontal": "fusarft:block/ctm/laser_port/1",
+    "particle": "fusarft:block/laser_port",
+    "vertical": "fusarft:block/ctm/laser_port/3"
+  }
+}

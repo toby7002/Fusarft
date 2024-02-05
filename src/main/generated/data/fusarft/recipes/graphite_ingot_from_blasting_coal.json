@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "wqwerty",
+  "ingredient": {
+    "item": "minecraft:coal"
+  },
+  "result": "fusarft:graphite_ingot"
+}

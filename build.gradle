@@ -1,88 +1,156 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.9.22'
-    id 'eclipse'
-    id 'idea'
-    id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.80'
-    id 'com.diffplug.spotless' version '6.25.0'
+	id "fabric-loom" version "1.5-SNAPSHOT"
+	id "maven-publish"
+	id "org.jetbrains.kotlin.jvm" version "1.9.10"
+	id "com.diffplug.spotless" version "6.22.0"
 }
 
-version = mod_version
-group = mod_group_id
+version = version_major + "." + version_minor + "." + version_patch
+group = project.maven_group
 
-repositories {
-    mavenLocal()
-    maven {
-        name = 'Kotlin for Forge'
-        url = 'https://thedarkcolour.github.io/KotlinForForge/'
-    }
+loom {
+	runs {
+		datagen {
+			inherit server
+			name "Data Generation"
+			vmArg "-Dfabric-api.datagen"
+			vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+			vmArg "-Dfabric-api.datagen.modid=${modid}"
+
+			runDir "build/datagen"
+		}
+	}
 }
 
 base {
-    archivesName = mod_id
+	archivesName = project.archives_base_name
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
-runs {
-    configureEach {
-        systemProperty 'forge.logging.markers', 'REGISTRIES'
-        systemProperty 'forge.logging.console.level', 'debug'
-
-        modSource project.sourceSets.main
+repositories {
+	maven { // Parchment
+		url "https://maven.parchmentmc.org"
+	}
+	maven { // REI, Cloth Config
+		url "https://maven.shedaniel.me"
+	}
+	maven { // ModMenu
+		url "https://maven.terraformersmc.com/"
+	}
+	maven {  // Jade
+		url "https://api.modrinth.com/maven"
+		content {
+			includeGroup "maven.modrinth"
+		}
+	}
+    maven { // owo-lib
+        url 'https://maven.wispforest.io' }
+    maven { // Modonomicon
+        url "https://dl.cloudsmith.io/public/klikli-dev/mods/maven/"
+        content {
+            includeGroup "com.klikli_dev"
+        }
     }
-
-    client {
-        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+    maven { // JEI
+        url "https://maven.blamejared.com/"
     }
-
-    server {
-        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
-        programArgument '--nogui'
-    }
-
-    gameTestServer {
-        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
-    }
-
-    data {
-        programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
-    }
+	mavenCentral()
 }
-
-sourceSets.main.resources { srcDir 'src/generated/resources' }
-
 
 dependencies {
-    implementation "net.neoforged:neoforge:${neo_version}"
-    implementation "thedarkcolour:kotlinforforge-neoforge:${kotlin_for_neoforge_version}"
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+
+	mappings loom.layered() {
+		officialMojangMappings()
+		parchment("org.parchmentmc.data:parchment-1.20.3:${parchment_version}@zip")
+	}
+
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
+    modImplementation "io.wispforest:owo-lib:${project.owo_version}"
+    modImplementation "com.klikli_dev:modonomicon-${minecraft_version}-fabric:${modonomicon_version}"
+
+    compileOnly "com.klikli_dev:modonomicon-${minecraft_version}-common:${modonomicon_version}"
+
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
+	modCompileOnly "maven.modrinth:jade:${jade_version}"
+
+	modLocalRuntime "com.terraformersmc:modmenu:${modmenu_version}"
+	modLocalRuntime "maven.modrinth:lazydfu:${lazydfu_version}"
+
+	if(project.runtime_tooltip_mod == "jade") {
+		modLocalRuntime "maven.modrinth:jade:${jade_version}"
+	}
+
+	if(project.runtime_itemlist_mod == "rei") {
+        modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
+	}
 }
 
-tasks.withType(ProcessResources).configureEach {
-    var replaceProperties = [
-            minecraft_version   : minecraft_version, minecraft_version_range: minecraft_version_range,
-            neo_version         : neo_version, neo_version_range: neo_version_range,
-            loader_version_range: loader_version_range,
-            mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-            mod_authors         : mod_authors, mod_description: mod_description,
-    ]
-    inputs.properties replaceProperties
+sourceSets {
+	main {
+		resources {
+			srcDirs += [
+					"src/main/generated"
+			]
+		}
+	}
+}
 
-    filesMatching(['META-INF/mods.toml']) {
-        expand replaceProperties + [project: project]
-    }
+processResources {
+	inputs.property "version", project.version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": project.version
+	}
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
+	it.options.release = 17
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+	kotlinOptions {
+		jvmTarget = 17
+	}
+}
+
+java {
+	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
+
+jar {
+	from("LICENSE") {
+		rename { "${it}_${project.base.archivesName.get()}"}
+	}
 }
 
 spotless {
-    kotlin {
-        target "src/*/kotlin/fusarft/**/*.kt"
+	java {
+		target "src/*/java/fusarft/**/*.java"
 
-        endWithNewline()
-        indentWithTabs()
-        ktlint()
-    }
+		endWithNewline()
+		indentWithTabs()
+		removeUnusedImports()
+		palantirJavaFormat()
+	}
+
+	kotlin {
+		target "src/*/kotlin/fusarft/**/*.kt"
+
+		endWithNewline()
+		indentWithTabs()
+		ktlint()
+	}
+
+	json {
+		target "src/*/resources/**/*.json"
+
+		endWithNewline()
+		indentWithSpaces()
+		prettier().config(["parser": "json"])
+	}
 }

@@ -1,0 +1,13 @@
+{
+  "block.fusarft.advanced_reactor_casing": "Advanced Reactor Casing",
+  "block.fusarft.basic_reactor_casing": "Basic Reactor Casing",
+  "block.fusarft.hafnium_ore": "Hafnium Ore",
+  "block.fusarft.ic_glass": "Inertial Confinement Reactor Glass",
+  "block.fusarft.laser_port": "Laser Port",
+  "block.fusarft.mc_glass": "Magnetic Confinement Reactor Glass",
+  "item.fusarft.graphite_ingot": "Graphite Ingot",
+  "item.fusarft.hafnium_ingot": "Hafnium Ingot",
+  "itemGroup.fusarft.fusarft": "Fusarft",
+  "itemGroup.fusarft.fusarft.button.github": "GitHub",
+  "itemGroup.fusarft.fusarft.button.modrinth": "Modrinth"
+}

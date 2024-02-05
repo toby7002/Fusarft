@@ -1,40 +1,30 @@
 package fusarft
 
-import net.minecraft.client.Minecraft
-import net.neoforged.fml.common.Mod
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent
-import net.neoforged.fml.event.lifecycle.FMLDedicatedServerSetupEvent
-import org.apache.logging.log4j.Level
-import org.apache.logging.log4j.LogManager
-import org.apache.logging.log4j.Logger
-import thedarkcolour.kotlinforforge.neoforge.forge.MOD_BUS
-import thedarkcolour.kotlinforforge.neoforge.forge.runForDist
+import fusarft.block.FBlocks
+import fusarft.item.FItems
+import io.wispforest.owo.itemgroup.Icon
+import io.wispforest.owo.itemgroup.OwoItemGroup
+import io.wispforest.owo.itemgroup.gui.ItemGroupButton
+import net.fabricmc.api.ModInitializer
+import net.minecraft.resources.ResourceLocation
 
-@Mod(Fusarft.MOD_ID)
-class Fusarft {
-    companion object {
-        const val MOD_ID: String = "fusarft"
-        val LOGGER: Logger = LogManager.getLogger(MOD_ID)
-    }
+class Fusarft : ModInitializer {
+	companion object {
+		const val MOD_ID: String = "fusarft"
+		val ITEM_GROUP: OwoItemGroup =
+			OwoItemGroup.builder(ResourceLocation(MOD_ID, MOD_ID)) { Icon.of(FItems.HAFNIUM_INGOT) }
+				.initializer { group ->
+					run {
+						group.addButton(ItemGroupButton.github(group, "https://github.com/toby7002/Fusarft"))
+						group.addButton(ItemGroupButton.modrinth(group, "https://github.com/toby7002/Fusarft"))
+					}
+				}
+				.build()
+	}
 
-    init {
-        runForDist(
-            clientTarget = {
-                MOD_BUS.addListener(::onClientSetup)
-                Minecraft.getInstance()
-            },
-            serverTarget = {
-                MOD_BUS.addListener(::onServerSetup)
-                "test"
-            }
-        )
-    }
-
-    private fun onClientSetup(event: FMLClientSetupEvent) {
-        LOGGER.log(Level.INFO, "Energy produced from fusion reactor is the cleanest energy!")
-    }
-
-     private fun onServerSetup(event: FMLDedicatedServerSetupEvent) {
-        LOGGER.log(Level.INFO, "Energy produced from fusion reactor is the cleanest energy!")
-    }
+	override fun onInitialize() {
+		ITEM_GROUP.initialize()
+		FItems.init()
+		FBlocks.init()
+	}
 }

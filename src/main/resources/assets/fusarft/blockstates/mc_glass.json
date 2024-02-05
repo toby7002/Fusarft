@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "": {
+      "model": "minecraft:block/air"
+    }
+  },
+
+  "athena:loader": "athena:ctm",
+  "ctm_textures": {
+    "center": "fusarft:block/ctm/mc_glass/0",
+    "empty": "fusarft:block/ctm/mc_glass/2",
+    "horizontal": "fusarft:block/ctm/mc_glass/1",
+    "particle": "fusarft:block/mc_glass",
+    "vertical": "fusarft:block/ctm/mc_glass/3"
+  }
+}
