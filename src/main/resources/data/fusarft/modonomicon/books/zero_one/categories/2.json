@@ -1,0 +1,7 @@
+{
+	"name": "Inertial Confinement Reactor",
+	"icon": "fusarft:basic_reactor_casing",
+	"sort_number": 2,
+	"background": "modonomicon:textures/gui/dark_slate_seamless.png",
+	"entry_textures": "modonomicon:textures/gui/entry_textures.png"
+}

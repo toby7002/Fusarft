@@ -1,0 +1,32 @@
+{
+	"category": "fusarft:1",
+	"name": "Another material?",
+	"description": "An ingredient for totalling Hafnium Carbonitride (HfCN)",
+	"icon": "fusarft:hafnium_ingot",
+	"x": 0,
+	"y": 0,
+	"pages": [
+		{
+			"type": "modonomicon:text",
+			"title": "Hafnium",
+			"use_markdown_title": true,
+			"show_title_separator": true,
+			"text": "Hafnium is a main material for building reactors"
+		}, {
+			"type": "modonomicon:spotlight",
+			"anchor": "",
+			"item": {
+				"item": "fusarft:hafnium_ore"
+			},
+			"text": "The best Y level for mining Hafnium ore is from -63 to 0",
+			"title": ""
+		}, {
+			"type": "modonomicon:blasting_recipe",
+			"anchor": "",
+			"recipe_id_2": "fusarft:hafnium_ingot_from_blasting_hafnium_ore",
+			"text": "Because Hafnium has a high smelting temperature so you need to smelt it in blast furnace",
+			"title1": "",
+			"title2": ""
+		}
+	]
+}

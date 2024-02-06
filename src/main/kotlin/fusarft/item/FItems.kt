@@ -13,7 +13,7 @@ class FItems : ItemRegistryContainer {
 		val HAFNIUM_INGOT = register("hafnium_ingot", Item(OwoItemSettings().group(Fusarft.ITEM_GROUP)))
 		val RAW_HAFNIUM = register("raw_hafnium", RawHafnium())
 		val GRAPHITE_INGOT = register("graphite_ingot", Item(OwoItemSettings().group(Fusarft.ITEM_GROUP)))
-
+		val ZERO_ONE = register("zero_one", ZeroOne())
 		private fun register(
 			name: String,
 			item: Item,

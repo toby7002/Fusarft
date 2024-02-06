@@ -1,0 +1,10 @@
+{
+	"name": "Zero One",
+	"tooltip": "The key to open Fusarft gateway",
+	"model": "fusarft:zero_one",
+	"book_overview_texture": "modonomicon:textures/gui/book_overview.png",
+	"book_content_texture": "modonomicon:textures/gui/book_content.png",
+	"auto_add_read_conditions": true,
+	"creative_tab": "fusarft:fusarft",
+	"default_title_color": 9169405
+}
