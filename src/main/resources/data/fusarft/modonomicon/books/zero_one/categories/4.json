@@ -1,7 +1,7 @@
 {
-	"name": "Magnetized Target Fusion Reactor",
-	"icon": "fusarft:mc_glass",
-	"sort_number": 4,
-	"background": "modonomicon:textures/gui/dark_slate_seamless.png",
-	"entry_textures": "modonomicon:textures/gui/entry_textures.png"
+  "name": "Magnetized Target Fusion Reactor",
+  "icon": "fusarft:mc_glass",
+  "sort_number": 4,
+  "background": "modonomicon:textures/gui/dark_slate_seamless.png",
+  "entry_textures": "modonomicon:textures/gui/entry_textures.png"
 }

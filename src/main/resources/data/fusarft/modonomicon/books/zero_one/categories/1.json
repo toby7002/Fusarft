@@ -1,7 +1,7 @@
 {
-	"name": "Fusion Engineering",
-	"icon": "fusarft:hafnium_ore",
-	"sort_number": 1,
-	"background": "modonomicon:textures/gui/dark_slate_seamless.png",
-	"entry_textures": "modonomicon:textures/gui/entry_textures.png"
+  "name": "Fusion Engineering",
+  "icon": "fusarft:hafnium_ore",
+  "sort_number": 1,
+  "background": "modonomicon:textures/gui/dark_slate_seamless.png",
+  "entry_textures": "modonomicon:textures/gui/entry_textures.png"
 }

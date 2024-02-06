@@ -70,20 +70,14 @@ dependencies {
     modImplementation "io.wispforest:owo-lib:${project.owo_version}"
     modImplementation "com.klikli_dev:modonomicon-${minecraft_version}-fabric:${modonomicon_version}"
 
+    include modApi("teamreborn:energy:${energy_version}") {
+        transitive = false
+    }
+
     modCompileOnly "com.klikli_dev:modonomicon-${minecraft_version}-common:${modonomicon_version}"
-	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
-	modCompileOnly "maven.modrinth:jade:${jade_version}"
 
 	modLocalRuntime "com.terraformersmc:modmenu:${modmenu_version}"
 	modLocalRuntime "maven.modrinth:lazydfu:${lazydfu_version}"
-
-	if(project.runtime_tooltip_mod == "jade") {
-		modLocalRuntime "maven.modrinth:jade:${jade_version}"
-	}
-
-	if(project.runtime_itemlist_mod == "rei") {
-        modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
-	}
 }
 
 sourceSets {

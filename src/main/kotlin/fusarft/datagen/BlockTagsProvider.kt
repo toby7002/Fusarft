@@ -7,10 +7,14 @@ import net.minecraft.core.HolderLookup
 import net.minecraft.tags.BlockTags
 import java.util.concurrent.CompletableFuture
 
-class BlockTagsProvider(output: FabricDataOutput, completableFuture: CompletableFuture<HolderLookup.Provider>) : FabricTagProvider.BlockTagProvider(
-	output,
-	completableFuture,
-) {
+class BlockTagsProvider(
+	output: FabricDataOutput,
+	completableFuture: CompletableFuture<HolderLookup.Provider>,
+) :
+	FabricTagProvider.BlockTagProvider(
+			output,
+			completableFuture,
+		) {
 	override fun addTags(arg: HolderLookup.Provider) {
 		registerMineableWithPickaxeBlocks()
 	}
