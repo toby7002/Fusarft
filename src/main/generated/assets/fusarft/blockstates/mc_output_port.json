@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "fusarft:block/mc_output_port"
+    }
+  }
+}

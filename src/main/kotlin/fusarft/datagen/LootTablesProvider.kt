@@ -16,8 +16,8 @@ class LootTablesProvider(dataOutput: FabricDataOutput) : FabricBlockLootTablePro
 				FBlocks.IC_GLASS,
 				FBlocks.MC_GLASS,
 				FBlocks.LASER_PORT,
-				FBlocks.BASIC_REACTOR_CASING,
-				FBlocks.ADVANCED_REACTOR_CASING,
+				FBlocks.IC_REACTOR_CASING,
+				FBlocks.MC_REACTOR_CASING,
 			)
 
 		blocks.forEach { block: Block -> dropSelf(block) }

@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "fusarft:advanced_reactor_casing"
+          "name": "fusarft:mc_reactor_casing"
         }
       ],
       "rolls": 1.0

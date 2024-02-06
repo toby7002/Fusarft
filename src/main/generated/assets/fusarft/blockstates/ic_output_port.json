@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "fusarft:block/ic_output_port"
+    }
+  }
+}

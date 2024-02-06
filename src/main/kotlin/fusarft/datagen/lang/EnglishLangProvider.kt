@@ -18,10 +18,14 @@ class EnglishLangProvider(output: FabricDataOutput) : FabricLanguageProvider(out
 
 		gen.add(FBlocks.HAFNIUM_ORE, "Hafnium Ore")
 		gen.add(FBlocks.DEEPSLATE_HAFNIUM_ORE, "Deepslate Hafnium Ore")
-		gen.add(FBlocks.BASIC_REACTOR_CASING, "Basic Reactor Casing")
-		gen.add(FBlocks.ADVANCED_REACTOR_CASING, "Advanced Reactor Casing")
+		gen.add(FBlocks.IC_REACTOR_CASING, "Inertial Confinement Reactor Casing")
+		gen.add(FBlocks.MC_REACTOR_CASING, "Magnetic Confinement Reactor Casing")
 		gen.add(FBlocks.IC_GLASS, "Inertial Confinement Reactor Glass")
+		gen.add(FBlocks.IC_INPUT_PORT, "Inertial Confinement Reactor Input Port")
+		gen.add(FBlocks.IC_OUTPUT_PORT, "Inertial Confinement Reactor Output Port")
 		gen.add(FBlocks.MC_GLASS, "Magnetic Confinement Reactor Glass")
+		gen.add(FBlocks.MC_INPUT_PORT, "Magnetic Confinement Reactor Input Port")
+		gen.add(FBlocks.MC_OUTPUT_PORT, "Magnetic Confinement Reactor Output Port")
 		gen.add(FBlocks.LASER_PORT, "Laser Port")
 	}
 }

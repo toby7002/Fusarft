@@ -14,6 +14,10 @@ class ModelsProvider(output: FabricDataOutput) : FabricModelProvider(output) {
 	override fun generateBlockStateModels(gen: BlockModelGenerators) {
 		basicBlock(gen, FBlocks.HAFNIUM_ORE)
 		basicBlock(gen, FBlocks.DEEPSLATE_HAFNIUM_ORE)
+		basicBlock(gen, FBlocks.IC_INPUT_PORT)
+		basicBlock(gen, FBlocks.IC_OUTPUT_PORT)
+		basicBlock(gen, FBlocks.MC_INPUT_PORT)
+		basicBlock(gen, FBlocks.MC_OUTPUT_PORT)
 	}
 
 	override fun generateItemModels(gen: ItemModelGenerators) {
