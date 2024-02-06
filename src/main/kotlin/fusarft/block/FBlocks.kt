@@ -15,6 +15,8 @@ import net.minecraft.world.level.block.StainedGlassBlock
 class FBlocks {
 	companion object {
 		val HAFNIUM_ORE = register("hafnium_ore", Block(FabricBlockSettings.create()))
+		val DEEPSLATE_HAFNIUM_ORE = register("deepslate_hafnium_ore", DeepslateHafniumOre())
+
 		val BASIC_REACTOR_CASING = register("basic_reactor_casing", Block(FabricBlockSettings.create()))
 		val ADVANCED_REACTOR_CASING = register("advanced_reactor_casing", Block(FabricBlockSettings.create()))
 		val IC_GLASS = register("ic_glass", StainedGlassBlock(DyeColor.WHITE, FabricBlockSettings.copyOf(Blocks.GLASS)))

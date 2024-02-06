@@ -1,6 +1,10 @@
-// 1.20.4	2024-02-05T17:48:53.1460391	Fusarft/Model Definitions
+// 1.20.4	2024-02-06T10:51:05.9577594	Fusarft/Model Definitions
 e606c0d816579a69108d615b1026252889d7123f assets\fusarft\models\item\graphite_ingot.json
+377d043e9d0c54698bef7c14b0b0b283cb41a9bd assets\fusarft\blockstates\deepslate_hafnium_ore.json
 9b3f0c667452b52da5721ee08c82248db291cce0 assets\fusarft\blockstates\hafnium_ore.json
 b0f6def52896416562c099447161b3cb734a0f2e assets\fusarft\models\item\hafnium_ore.json
+a3c0b9ac2f54e9016a504e85c45b0f8280818e19 assets\fusarft\models\item\raw_hafnium.json
+8c9f2c9b7b0da546f168adf7271569e0de89208f assets\fusarft\models\item\deepslate_hafnium_ore.json
 43f7ef8d73cd558961f0fbe80b5a589912ff0f54 assets\fusarft\models\item\hafnium_ingot.json
 9ebec4a8ea8275dae542580c8829907685fe77f6 assets\fusarft\models\block\hafnium_ore.json
+948b9ccff20f2cabfa1d7f481a19da23c46a42fc assets\fusarft\models\block\deepslate_hafnium_ore.json

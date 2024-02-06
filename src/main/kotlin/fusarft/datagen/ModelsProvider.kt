@@ -13,10 +13,12 @@ import net.minecraft.world.level.block.Block
 class ModelsProvider(output: FabricDataOutput) : FabricModelProvider(output) {
 	override fun generateBlockStateModels(gen: BlockModelGenerators) {
 		basicBlock(gen, FBlocks.HAFNIUM_ORE)
+		basicBlock(gen, FBlocks.DEEPSLATE_HAFNIUM_ORE)
 	}
 
 	override fun generateItemModels(gen: ItemModelGenerators) {
 		basicItem(gen, FItems.HAFNIUM_INGOT)
+		basicItem(gen, FItems.RAW_HAFNIUM)
 		basicItem(gen, FItems.GRAPHITE_INGOT)
 	}
 
