@@ -16,6 +16,9 @@ class DataGenerators : DataGeneratorEntrypoint {
 		pack.addProvider(::ModelsProvider)
 		pack.addProvider(::EnglishLangProvider)
 		pack.addProvider(::WorldFeaturesProvider)
+		pack.addProvider(::LootTablesProvider)
+		pack.addProvider(::ItemTagsProvider)
+		pack.addProvider(::BlockTagsProvider)
 	}
 
 	override fun buildRegistry(registryBuilder: RegistrySetBuilder) {

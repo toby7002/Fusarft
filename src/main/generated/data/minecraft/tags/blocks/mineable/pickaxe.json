@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "fusarft:hafnium_ore",
+    "fusarft:deepslate_hafnium_ore",
+    "fusarft:basic_reactor_casing",
+    "fusarft:advanced_reactor_casing",
+    "fusarft:laser_port",
+    "fusarft:mc_glass",
+    "fusarft:ic_glass"
+  ]
+}

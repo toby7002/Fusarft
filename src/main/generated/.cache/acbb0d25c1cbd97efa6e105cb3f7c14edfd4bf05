@@ -1,0 +1,6 @@
+// 1.20.4	2024-02-06T15:22:22.2849315	Fusarft/Block Loot Tables
+181f02c38c3243f3536f62261407372824536f17 data\fusarft\loot_tables\blocks\ic_glass.json
+71a5c8b8670a00b6303d50b6b37666d0a1e014bf data\fusarft\loot_tables\blocks\basic_reactor_casing.json
+5dbce9d8d997bbcf53eb137906668735a222c066 data\fusarft\loot_tables\blocks\laser_port.json
+a862fc0193452ae082f606431ca176086cd5077f data\fusarft\loot_tables\blocks\mc_glass.json
+bc8f608a6b74ff3b6f7c6e0301a1bad25c608d8e data\fusarft\loot_tables\blocks\advanced_reactor_casing.json
