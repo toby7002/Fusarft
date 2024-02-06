@@ -2,6 +2,7 @@ package fusarft
 
 import fusarft.block.FBlocks
 import fusarft.item.FItems
+import fusarft.world.gen.FWorldGeneration
 import io.wispforest.owo.itemgroup.Icon
 import io.wispforest.owo.itemgroup.OwoItemGroup
 import io.wispforest.owo.itemgroup.gui.ItemGroupButton
@@ -26,5 +27,6 @@ class Fusarft : ModInitializer {
 		ITEM_GROUP.initialize()
 		FItems.init()
 		FBlocks.init()
+		FWorldGeneration.generateWorldGen()
 	}
 }
