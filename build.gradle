@@ -137,7 +137,7 @@ spotless {
 
 		endWithNewline()
 		indentWithTabs()
-		ktlint()
+		ktfmt().kotlinlangStyle()
 	}
 
 	json {

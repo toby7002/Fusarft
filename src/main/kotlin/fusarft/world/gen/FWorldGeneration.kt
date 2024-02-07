@@ -1,9 +1,9 @@
 package fusarft.world.gen
 
 class FWorldGeneration {
-	companion object {
-		fun generateWorldGen() {
-			FOreGeneration.generateOres()
-		}
-	}
+    companion object {
+        fun init() {
+            FOreGeneration.generateOres()
+        }
+    }
 }

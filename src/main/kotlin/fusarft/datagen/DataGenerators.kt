@@ -9,20 +9,20 @@ import net.minecraft.core.RegistrySetBuilder
 import net.minecraft.core.registries.Registries
 
 class DataGenerators : DataGeneratorEntrypoint {
-	override fun onInitializeDataGenerator(gen: FabricDataGenerator) {
-		val pack: FabricDataGenerator.Pack = gen.createPack()
+    override fun onInitializeDataGenerator(gen: FabricDataGenerator) {
+        val pack: FabricDataGenerator.Pack = gen.createPack()
 
-		pack.addProvider(::RecipesProvider)
-		pack.addProvider(::ModelsProvider)
-		pack.addProvider(::EnglishLangProvider)
-		pack.addProvider(::WorldFeaturesProvider)
-		pack.addProvider(::LootTablesProvider)
-		pack.addProvider(::ItemTagsProvider)
-		pack.addProvider(::BlockTagsProvider)
-	}
+        pack.addProvider(::RecipesProvider)
+        pack.addProvider(::ModelsProvider)
+        pack.addProvider(::EnglishLangProvider)
+        pack.addProvider(::WorldFeaturesProvider)
+        pack.addProvider(::LootTablesProvider)
+        pack.addProvider(::ItemTagsProvider)
+        pack.addProvider(::BlockTagsProvider)
+    }
 
-	override fun buildRegistry(registryBuilder: RegistrySetBuilder) {
-		registryBuilder.add(Registries.CONFIGURED_FEATURE, FConfiguredFeatures::boostrap)
-		registryBuilder.add(Registries.PLACED_FEATURE, FPlacedFeatures::boostrap)
-	}
+    override fun buildRegistry(registryBuilder: RegistrySetBuilder) {
+        registryBuilder.add(Registries.CONFIGURED_FEATURE, FConfiguredFeatures::boostrap)
+        registryBuilder.add(Registries.PLACED_FEATURE, FPlacedFeatures::boostrap)
+    }
 }
