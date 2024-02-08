@@ -16,15 +16,15 @@ import net.minecraft.world.level.material.Fluid
 import net.minecraft.world.level.material.FluidState
 import net.minecraft.world.level.material.Fluids
 
-open class Tritium : FlowingFluid() {
+open class Steam : FlowingFluid() {
 	companion object {
-		const val TRITIUM = "tritium"
-		const val FLOWING_TRITIUM = "flowing_tritium"
-		const val TRITIUM_BLOCK = "tritium_block"
-		const val TRITIUM_BUCKET = "tritium_bucket"
+		const val STEAM: String = "steam"
+		const val FLOWING_STEAM: String = "flowing_steam"
+		const val STEAM_BLOCK: String = "steam_block"
+		const val STEAM_BUCKET: String = "steam_bucket"
 	}
     override fun getBucket(): Item? {
-        return FFluids.TRITIUM_BUCKET
+        return FFluids.STEAM_BUCKET
     }
 
     override fun canBeReplacedWith(
@@ -38,7 +38,7 @@ open class Tritium : FlowingFluid() {
     }
 
     override fun getTickDelay(level: LevelReader): Int {
-        return 0
+        return 5
     }
 
     override fun getExplosionResistance(): Float {
@@ -46,11 +46,11 @@ open class Tritium : FlowingFluid() {
     }
 
 	override fun isSame(fluid: Fluid): Boolean {
-		return fluid === FFluids.TRITIUM || fluid === FFluids.FLOWING_TRITIUM
+		return fluid === FFluids.STEAM || fluid === FFluids.FLOWING_STEAM
 	}
 
     override fun createLegacyBlock(state: FluidState): BlockState? {
-        return FFluids.TRITIUM_BLOCK?.defaultBlockState()
+        return FFluids.STEAM_BLOCK?.defaultBlockState()
             ?.setValue(BlockStateProperties.LEVEL, getLegacyLevel(state))
     }
 
@@ -63,11 +63,11 @@ open class Tritium : FlowingFluid() {
     }
 
     override fun getFlowing(): FlowingFluid? {
-        return FFluids.FLOWING_TRITIUM
+        return FFluids.FLOWING_STEAM
     }
 
     override fun getSource(): FlowingFluid? {
-        return FFluids.TRITIUM
+        return FFluids.STEAM
     }
 
     override fun canConvertToSource(level: Level): Boolean {
@@ -84,14 +84,14 @@ open class Tritium : FlowingFluid() {
     }
 
     override fun getSlopeFindDistance(level: LevelReader): Int {
-        return 1
+        return 4
     }
 
     override fun getDropOff(level: LevelReader): Int {
         return 1
     }
 
-    class FLOWING : Tritium() {
+    class FLOWING : Steam() {
         override fun createFluidStateDefinition(
             builder: StateDefinition.Builder<Fluid, FluidState>
         ) {
@@ -108,7 +108,7 @@ open class Tritium : FlowingFluid() {
         }
     }
 
-    class SOURCE : Tritium() {
+    class SOURCE : Steam() {
         override fun getAmount(state: FluidState): Int {
             return 8
         }

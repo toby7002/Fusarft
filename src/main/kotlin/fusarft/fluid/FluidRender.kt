@@ -11,6 +11,7 @@ class FluidRender {
 		fun init() {
 			registerDeuterium()
 			registerTritium()
+			registerSteam()
 		}
 
 		private fun registerDeuterium() {
@@ -44,6 +45,22 @@ class FluidRender {
 				RenderType.translucent(),
 				FFluids.TRITIUM,
 				FFluids.FLOWING_TRITIUM,
+			)
+		}
+		private fun registerSteam() {
+			FluidRenderHandlerRegistry.INSTANCE.register(
+				FFluids.STEAM,
+				FFluids.FLOWING_STEAM,
+				SimpleFluidRenderHandler(
+					ResourceLocation("fusarft:block/liquid"),
+					ResourceLocation("fusarft:block/liquid_flow"),
+					0xf8f8f2,
+				),
+			)
+			BlockRenderLayerMap.INSTANCE.putFluids(
+				RenderType.translucent(),
+				FFluids.STEAM,
+				FFluids.FLOWING_STEAM,
 			)
 		}
 	}

@@ -17,6 +17,12 @@ import net.minecraft.world.level.material.FluidState
 import net.minecraft.world.level.material.Fluids
 
 open class Deuterium : FlowingFluid() {
+	companion object {
+		const val DEUTERIUM: String = "deuterium"
+		const val FLOWING_DEUTERIUM: String = "flowing_deuterium"
+		const val DEUTERIUM_BLOCK: String = "deuterium_block"
+		const val DEUTERIUM_BUCKET: String = "deuterium_bucket"
+	}
     override fun getBucket(): Item? {
         return FFluids.DEUTERIUM_BUCKET
     }
@@ -32,7 +38,7 @@ open class Deuterium : FlowingFluid() {
     }
 
     override fun getTickDelay(level: LevelReader): Int {
-        return 5
+        return 0
     }
 
     override fun getExplosionResistance(): Float {
@@ -78,7 +84,7 @@ open class Deuterium : FlowingFluid() {
     }
 
     override fun getSlopeFindDistance(level: LevelReader): Int {
-        return 4
+        return 1
     }
 
     override fun getDropOff(level: LevelReader): Int {

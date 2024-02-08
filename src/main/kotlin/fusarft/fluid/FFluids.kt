@@ -1,6 +1,7 @@
 package fusarft.fluid
 
 import fusarft.Fusarft
+import fusarft.item.SteamBucket
 import io.wispforest.owo.itemgroup.OwoItemSettings
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.core.Registry
@@ -26,22 +27,28 @@ class FFluids {
 		var DEUTERIUM_BLOCK: Block? = null
 		var DEUTERIUM_BUCKET: Item? = null
 
+		var STEAM: FlowingFluid? = null
+		var FLOWING_STEAM: FlowingFluid? = null
+		var STEAM_BLOCK: Block? = null
+		var STEAM_BUCKET: Item? = null
+
         fun init() {
             registerTritium()
 			registerDeuterium()
+			registerSteam()
         }
 
 		private fun registerTritium() {
 			TRITIUM =
 				Registry.register(
 					BuiltInRegistries.FLUID,
-					ResourceLocation(Fusarft.MOD_ID, "tritium"),
+					ResourceLocation(Fusarft.MOD_ID, Tritium.TRITIUM),
 					Tritium.SOURCE(),
 				)
 			FLOWING_TRITIUM =
 				Registry.register(
 					BuiltInRegistries.FLUID,
-					ResourceLocation(Fusarft.MOD_ID, "flowing_tritium"),
+					ResourceLocation(Fusarft.MOD_ID, Tritium.FLOWING_TRITIUM),
 					Tritium.FLOWING(),
 				)
 
@@ -49,7 +56,7 @@ class FFluids {
 				TRITIUM?.let {
 					Registry.register(
 						BuiltInRegistries.BLOCK,
-						ResourceLocation(Fusarft.MOD_ID, "tritium_block"),
+						ResourceLocation(Fusarft.MOD_ID, Tritium.TRITIUM_BLOCK),
 						object : LiquidBlock(it, FabricBlockSettings.copyOf(Blocks.WATER)) {},
 					)
 				}
@@ -67,7 +74,7 @@ class FFluids {
 					?.let {
 						Registry.register(
 							BuiltInRegistries.ITEM,
-							ResourceLocation(Fusarft.MOD_ID, "tritium_bucket"),
+							ResourceLocation(Fusarft.MOD_ID, Tritium.TRITIUM_BUCKET),
 							it,
 						)
 					}
@@ -76,13 +83,13 @@ class FFluids {
 			DEUTERIUM =
 				Registry.register(
 					BuiltInRegistries.FLUID,
-					ResourceLocation(Fusarft.MOD_ID, "deuterium"),
+					ResourceLocation(Fusarft.MOD_ID, Deuterium.DEUTERIUM),
 					Deuterium.SOURCE(),
 				)
 			FLOWING_DEUTERIUM =
 				Registry.register(
 					BuiltInRegistries.FLUID,
-					ResourceLocation(Fusarft.MOD_ID, "flowing_deuterium"),
+					ResourceLocation(Fusarft.MOD_ID, Deuterium.FLOWING_DEUTERIUM),
 					Deuterium.FLOWING(),
 				)
 
@@ -90,7 +97,7 @@ class FFluids {
 				DEUTERIUM?.let {
 					Registry.register(
 						BuiltInRegistries.BLOCK,
-						ResourceLocation(Fusarft.MOD_ID, "deuterium_block"),
+						ResourceLocation(Fusarft.MOD_ID, Deuterium.DEUTERIUM_BLOCK),
 						object : LiquidBlock(it, FabricBlockSettings.copyOf(Blocks.WATER)) {},
 					)
 				}
@@ -108,7 +115,42 @@ class FFluids {
 					?.let {
 						Registry.register(
 							BuiltInRegistries.ITEM,
-							ResourceLocation(Fusarft.MOD_ID, "deuterium_bucket"),
+							ResourceLocation(Fusarft.MOD_ID, Deuterium.DEUTERIUM_BUCKET),
+							it,
+						)
+					}
+		}
+		private fun registerSteam() {
+			STEAM =
+				Registry.register(
+					BuiltInRegistries.FLUID,
+					ResourceLocation(Fusarft.MOD_ID, Steam.STEAM),
+					Steam.SOURCE(),
+				)
+			FLOWING_STEAM =
+				Registry.register(
+					BuiltInRegistries.FLUID,
+					ResourceLocation(Fusarft.MOD_ID, Steam.FLOWING_STEAM),
+					Steam.FLOWING(),
+				)
+
+			STEAM_BLOCK =
+				STEAM?.let {
+					Registry.register(
+						BuiltInRegistries.BLOCK,
+						ResourceLocation(Fusarft.MOD_ID, Steam.STEAM_BLOCK),
+						object : LiquidBlock(it, FabricBlockSettings.copyOf(Blocks.WATER)) {},
+					)
+				}
+
+			STEAM_BUCKET =
+				STEAM?.let {
+					SteamBucket()
+				}
+					?.let {
+						Registry.register(
+							BuiltInRegistries.ITEM,
+							ResourceLocation(Fusarft.MOD_ID, Steam.STEAM_BUCKET),
 							it,
 						)
 					}
